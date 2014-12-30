@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
+
+    title Andrew Reifman
+
+    = stylesheet_link_tag "normalize", "all"
+
+    <script src="//use.typekit.net/eim7ozc.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+  body
+    .logo
+      = image_tag 'images/logo.svg', width: '48'
+
+    .menu
+      .menu-btn
+        .btn-bg
+        .bars
+        a.work href="index.html" Work
+        a.about href="" About
+        a.contact href="mailto:andrewreifman@gmail.com" Say hi
+
+    = yield
+
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js", "all"

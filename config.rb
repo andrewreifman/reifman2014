@@ -3,9 +3,10 @@
 ###
 
 # Change Compass configuration
-# compass_config do |config|
-#   config.output_style = :compact
-# end
+compass_config do |config|
+  # config.output_style = :compact
+  config.sass_options = { line_comments: false }
+end
 
 ###
 # Page options, layouts, aliases and proxies
@@ -41,11 +42,13 @@
 # end
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+  def cp(path)
+    "current" if path == current_page.path
+  end
+end
+
+set :slim, { pretty: true, format: :html5 }
 
 set :css_dir, 'stylesheets'
 
@@ -65,7 +68,7 @@ configure :build do
   # activate :asset_hash
 
   # Use relative URLs
-  # activate :relative_assets
+  activate :relative_assets
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
