@@ -23,12 +23,12 @@ $(document).ready(function(){
         $('.theme-2').show().delay(200).animate({'margin-left': '-350px'}, 300, 'easeOutBack');
         $('.theme-3').show().delay(200).animate({'margin-left': '-150px'}, 300, 'easeOutBack');
         $('.theme-4').show().delay(200).animate({'margin-left': '-80px'}, 300, 'easeOutBack');
-      }, 2600);
+      }, 1800);
 
       $('.theme-main').addClass('open');
       setTimeout(function(){
         $('.theme-main .image').show();
-      }, 1400);
+      }, 1000);
     }
   });
 
@@ -36,20 +36,21 @@ $(document).ready(function(){
   $(".widgets .widget").each(function(){
     $(this).mousedown(function(){
       var boxClass = $(this).attr('title');
-      $(".box." + boxClass + "").addClass('active animated rubberBand');
+      $(".browser-content .box." + boxClass + "").addClass('active animated rubberBand');
       $(".bubble").addClass('animated bounceOut');
     });
 
     $(this).mouseup(function(){
       var boxClass = $(this).attr('title');
-      $(".box." + boxClass + "").removeClass('active animated rubberBand');
+      $(".browser-content .box." + boxClass + "").removeClass('active animated rubberBand');
       $(".bubble").hide();
     });
   });
 
   $(".widgets .widget").draggable({
     revert: "invalid",
-    revertDuration: 500
+    revertDuration: 500,
+    scroll: false
   });
 
   $(".browser-content .box").each(function(){

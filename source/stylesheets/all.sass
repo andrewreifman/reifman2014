@@ -12,6 +12,7 @@
 /*-----------------------------------------------------------------------------------*/
 *
   @include box-sizing(border-box)
+  outline: 0 !important
 
 html, body
   width: 100%
@@ -20,6 +21,7 @@ html, body
 body
   color: #000
   font-family: "proxima-nova",sans-serif
+  overflow-x: hidden
 
 h1,h2,h3
   text-transform: uppercase
@@ -43,6 +45,17 @@ h2
 h3
   margin-top: 0
   font-size: 22px
+
+@media screen and (max-width: 900px)
+  h2
+    margin-top: 80px
+    margin-bottom: 40px
+
+@media screen and (max-width: 767px)
+  h2
+    font-size: 30px
+    margin-top: 60px
+    margin-bottom: 25px
 
 a
   text-decoration: none
@@ -322,7 +335,7 @@ img
   .text
     width: 100%
     position: absolute
-    top: 120px
+    top: 15%
     left: 0
 
     h1
@@ -344,12 +357,20 @@ img
 .container-fluid
   width: 100%
 
-.container:before, .container:after, .container-fluid:before, .container-fluid:after
+.container:before, .container-fluid:before
   display: table
   content: ""
+.container:after, .container-fluid:after
+  content: ""
+  display: table
+  clear: both
+
+.mobile-only
+  display: none
 
 .intro
-  padding-right: 340px
+  float: left
+  width: calc(100% - 340px)
 
   p
     font-size: 28px
@@ -469,448 +490,119 @@ img
         font-size: 70px
         letter-spacing: -.02em
 
-/*-----------------------------------------------------------------------------------*/
-/*  Kickdrop
-/*-----------------------------------------------------------------------------------*/
-.kickdrop
+@media screen and (max-height: 840px) and (min-width: 900px)
   .hero
-    background-color: #36abc5
+    height: 600px
+    margin-bottom: 60px
 
-  .main-logo
-    background-color: #32b9b1
-    padding: 50px
-    text-align: center
+    .text
+      top: 12%
 
-    img
-      max-width: 100%
-      margin: 0 auto
+      h1
+        font-size: 110px
 
-  .other-colors
-    > div
-      width: 20%
-      float: left
+@media screen and (max-height: 700px) and (min-width: 900px)
+  .hero
+    height: 500px
+    margin-bottom: 50px
 
-    img
-      max-width: 100%
+    .text
+      top: 12%
 
-    .red
-      background-color: #f15a5a
-    .green
-      background-color: #a6ce59
-    .orange
-      background-color: #df8c41
-    .purple
-      background-color: #ab65e6
-    .blue
-      background-color: #36abc5
+      h1
+        font-size: 100px
+        margin-bottom: 10px
 
-  .website
-    img
-      margin-bottom: 60px
-      box-shadow: 0 25px 0 -15px rgba(0,0,0,.04)
+@media screen and (max-width: 900px)
+  .hero
+    margin-bottom: 40px
+    .text
+      h1
+        font-size: 100px
 
-      &:last-child
-        margin-bottom: 100px
+  .intro
+    p
+      font-size: 24px
+      margin: 0 0 25px
 
-  .team
-    background-color: #ec9d4f
-    padding-bottom: 60px
-    text-align: center
+  .other-info
+    padding-top: 4px
 
-    h2
-      color: #fff
-      margin: 60px 0 40px
+@media screen and (max-width: 767px)
+  header
+    height: 60px
+    background-color: #000
 
-    img
-      margin: 0 auto
+    .logo
+      height: 60px
+      width: 60px
+      left: 5px
+      padding-top: 13px
 
+      svg
+        width: 36px
+        fill: #fff !important
 
-  /*-----------------------------------------------------------------------------------*/
-  /*  Teaser
-  /*-----------------------------------------------------------------------------------*/
-  @include keyframes(spaceSpin)
-    from
-      @include transform(rotate(0deg))
-    to
-      @include transform(rotate(360deg))
+      &:after
+        display: none
 
-  .teaser
-    > div
-      height: 600px
+    .menu
+      right: 5px
+      .menu-btn
+        height: 60px
+        width: 60px
+        padding-top: 28px
+
+        .bars, .bars:before, .bars:after
+          height: 3px
+          width: 30px
+
+        .bars:before
+          top: -8px
+
+        .bars:after
+          top: 8px
+
+  .hero
+    margin-bottom: 30px
+    .text
+      h1
+        font-size: 15vw
+        margin-bottom: 5px
+      p
+        display: none
+
+  .intro
+    width: 100%
+    margin-bottom: 30px
+    float: none
+
+    p
+      font-size: 18px
+      margin: 0 0 20px
+
+  .other-info
+    float: none
+    width: 100%
+
+    ul
+      margin-bottom: 40px
+
+  .other-projects
+    .project
       width: 100%
-      overflow: hidden
-      display: table
-      position: relative
+      float: left
+      padding: 0 30px
 
-      .inner
-        height: 100%
-        width: 100%
-        display: table-cell
-        vertical-align: middle
+      .text
+        height: 46px
+        margin-top: -23px
 
-    .space
-      background: #32b9b1 url("../images/kickdrop/stars.png") repeat center center
+        h1
+          font-size: 40px
+          letter-spacing: -.02em
 
-      .astronaut
-        width: 252px
-        height: 335px
-        margin: 0 auto
-        position: relative
-        z-index: 100
+  .mobile-only
+    display: block
 
-        .body
-          @include bgImage("../images/kickdrop/astronaut.gif", 252px, 335px)
-          @include position(absolute, 0px null null 0px)
-          @include animation(spaceSpin 15s infinite linear)
-
-        .cord
-          @include bgImage("../images/kickdrop/cord.gif", 275px, 500px)
-          @include position(absolute, 135px null null 45%)
-
-      .rocket
-        @include bgImage("../images/kickdrop/rocket.png", 94px, 154px)
-        @include transform(rotate(25deg))
-        @include position(absolute, 50% null null 82%)
-
-        .wrapper
-          position: relative
-
-          .exhaust
-            @include bgImage("../images/kickdrop/exhaust.gif", 42px, 82px)
-            @include position(absolute, 149px null null 26px)
-
-      .spaceship
-        @include bgImage("../images/kickdrop/spaceship.png", 94px, 80px)
-        @include transform(rotate(-10deg))
-        @include position(absolute, 60% null null 20%)
-        z-index: 20
-
-        .wrapper
-          position: relative
-
-          .beams
-            @include bgImage("../images/kickdrop/beams.gif", 72px, 78px)
-            @include position(absolute, 80px null null 12px)
-
-      .satellite
-        @include bgImage("../images/kickdrop/satellite.png", 198px, 88px)
-        @include transform(rotate(15deg))
-        @include position(absolute, 20% null null 8%)
-
-        .wrapper
-          position: relative
-
-          .signal
-            @include bgImage("../images/kickdrop/signal.gif", 145px, 91px)
-            @include position(absolute, 74px null null 26px)
-
-      .planet
-        @include bgImage("../images/kickdrop/planet.gif", 120px, 70px)
-        @include position(absolute, 16% null null 68%)
-
-
-    .problem
-      background-color: #f15a5a
-
-      .desk
-        width: 554px
-        height: 642px
-        @include position(absolute, -190px null null 50%)
-        margin-left: -450px
-
-        > .wrapper
-          position: relative
-          width: 100%
-          height: 100%
-
-        .laptop
-          width: 100%
-          height: 100%
-          @include bgImage("../images/kickdrop/laptop.png", 554px, 642px)
-          @include position(absolute, 0px null null 0px)
-
-        .pencil
-          @include bgImage("../images/kickdrop/pencil.png", 24px, 222px)
-          @include position(absolute, null null 25px 35px)
-
-        .screen
-          @include bgImage("../images/kickdrop/screen.gif", 392px, 226px)
-          @include position(absolute, 58px null null 128px)
-
-        .hand
-          @include bgImage("../images/kickdrop/hand.gif", 400px, 570px)
-          @include position(absolute, 292px null null 100%)
-          margin-left: -50px
-
-    .themes
-      text-align: center
-      background-color: #a6ce59
-
-      .theme-options
-        height: 400px
-        width: 100%
-        @include position(absolute, 50% null null null)
-        margin-top: -200px
-
-        .wrapper
-          position: relative
-          width: 100%
-          height: 100%
-
-          .browser
-            width: 500px
-            height: 100%
-            background: #FFF
-            border-radius: 10px
-            overflow: hidden
-            border: 6px solid #647f32
-            display: block
-            position: absolute
-            left: 50%
-            margin-left: -250px
-            box-shadow: 0 12px 0 -5px rgba(0,0,0,.08)
-
-            .browser-bar
-              width: 100%
-              height: 22px
-              background-color: #CCC
-              border-bottom: 4px solid #647f32
-              display: block
-              padding: 5px 0 0 6px
-              text-align: left
-
-              span
-                border-radius: 50%
-                width: 8px
-                height: 8px
-                display: inline-block
-                background-color: #647f32
-                margin-right: 4px
-                vertical-align: top
-
-            &.theme-main
-              box-shadow: 0 12px 0 -5px rgba(0,0,0,.08)
-              height: 0%
-              width: 0px
-              position: relative
-              z-index: 10
-              top: 0
-              left: 0
-              margin: 197px auto 0
-              display: block
-              border-width: 0
-              @include transition(all .4s .6s, width .4s 1s, border-width .2s .5s)
-
-              .image
-                @include bgImage("../images/kickdrop/theme-main.gif", 488px, 388px)
-                display: none
-
-              &.open
-                width: 500px
-                height: 100%
-                margin-top: 0
-                border-width: 6px
-
-            &.theme-1
-              @include bgImage("../images/kickdrop/theme-1.gif", 140px, 288px)
-              background-position: left 22px
-              width: 500px
-              height: auto
-              top: 40px
-              bottom: 40px
-              display: none
-
-            &.theme-2
-              @include bgImage("../images/kickdrop/theme-2.gif", 140px, 328px)
-              background-position: left 22px
-              width: 500px
-              height: auto
-              top: 20px
-              bottom: 20px
-              display: none
-
-            &.theme-3
-              @include bgImage("../images/kickdrop/theme-3.gif", 140px, 328px)
-              background-position: right 22px
-              width: 500px
-              height: auto
-              top: 20px
-              bottom: 20px
-              display: none
-
-            &.theme-4
-              @include bgImage("../images/kickdrop/theme-4.gif", 140px, 288px)
-              background-position: right 22px
-              width: 500px
-              height: auto
-              top: 40px
-              bottom: 40px
-              display: none
-
-
-    .drops
-      text-align: center
-      background-color: #0fa6db
-
-      .left-col
-        @include position(absolute, 50% 50% null null)
-        width: 482px
-        margin: -234px 10px 0 0
-        @include transition(all .25s 1s)
-
-      .widget-container
-        height: 134px
-        width: 418px
-        display: inline-block
-        vertical-align: top
-        border: 3px dashed rgba(255,255,255,.18)
-        border-radius: 8px
-
-        &.half
-          width: 202px
-          margin: 0 6px
-
-        &.third
-          width: 130px
-          height: 130px
-          margin: 0 5px
-
-        &.chart
-          margin: 0 0 20px 0
-        &.weather
-          margin: 10px 20px 0 0
-        &.profile
-          margin: 20px 0 10px 20px
-        &.map
-          margin-top: 20px
-
-      .widget
-        border: 4px solid #06546f
-        border-radius: 8px
-        box-shadow: 0 8px 0 -4px rgba(0,0,0,.15)
-        height: 134px
-        width: 418px
-        display: block
-        cursor: move
-        margin: -3px 0 0 -3px
-
-        &.half
-          width: 202px
-
-        &.third
-          width: 130px
-          height: 130px
-
-        &.animated
-          cursor: default
-
-        &.ui-draggable-dragging
-          z-index: 9999
-
-        &.chart
-          background: url('../images/kickdrop/widget-chart.png') 0 0 no-repeat
-        &.weather
-          background: url('../images/kickdrop/widget-weather.png') 0 0 no-repeat
-        &.chat
-          background: url('../images/kickdrop/widget-chat.png') 0 0 no-repeat
-        &.profile
-          background: url('../images/kickdrop/widget-profile.png') 0 0 no-repeat
-          position: relative
-
-          img
-            @include position(absolute, -50px -44px null null)
-            z-index: 100
-            @include animation-duration(.5s)
-
-        &.calendar
-          background: url('../images/kickdrop/widget-calendar.png') 0 0 no-repeat
-        &.map
-          background: url('../images/kickdrop/widget-map.png') 0 0 no-repeat
-
-      .browser
-        @include position(absolute, 50% null null 50%)
-        margin-top: -250px
-        margin-left: 10px
-        width: 470px
-        height: 500px
-        background: #FFF
-        border-radius: 10px
-        overflow: hidden
-        border: 6px solid #06546f
-        box-shadow: 0 12px 0 -5px rgba(0,0,0,.15)
-        @include transition(all .5s 1.5s ease-out)
-
-        .browser-bar
-          width: 100%
-          height: 22px
-          background-color: #CCC
-          border-bottom: 4px solid #06546f
-          display: block
-          padding: 5px 0 0 6px
-          text-align: left
-          @include transition(all .5s 1.5s)
-
-          span
-            border-radius: 50%
-            width: 8px
-            height: 8px
-            display: inline-block
-            background-color: #06546f
-            vertical-align: top
-            margin-right: 4px
-            @include transition(all .5s 1.5s)
-
-        .browser-content
-          padding: 20px 12px
-
-          .box
-            border: 3px dashed #b4cbd4
-            border-radius: 8px
-            height: 134px
-            width: 418px
-            float: left
-            display: block
-            margin: 0 7px
-            -webkit-animation-duration: .8s
-
-            &.active
-              @include transition(background .2s)
-              background: #fff4ce
-
-            &.half
-              width: 202px
-
-            &.third
-              width: 130px
-              height: 130px
-              margin: 14px 7px
-
-      .orange-bg
-        @include bgImage("../images/kickdrop/fireworks@2x.gif", 1012px, 660px)
-        background-color: #f19849
-        background-position: center center
-        width: 100%
-        height: 100%
-        @include position(absolute, 100% null null 0px)
-        @include transition(top .8s 2s)
-
-      &.completed
-        .left-col
-          right: 100%
-
-        .browser
-          margin-left: -235px
-          border-color: #895528
-
-          .browser-bar
-            border-color: #895528
-
-            span
-              background: #895528
-
-          .browser-content .widget
-            @include transition(border .5s 1.5s)
-            border: 4px solid #895528
-
-        .orange-bg
-          top: 0
+@import "kickdrop"
