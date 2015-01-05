@@ -67,166 +67,167 @@ img
     max-width: 100%
     display: block
 
-.logo
-  width: 110px
-  height: 110px
-  text-align: center
-  position: absolute
-  left: 0
-  top: 0
-  padding-top: 38px
-  z-index: 20
-
-  svg
-    position: relative
-    z-index: 10
-    fill: white
-    @include transition(all .2s linear)
-
-  &:after
-    content: ""
-    width: 110px
-    height: 110px
-    position: absolute
-    top: 0
-    left: 0
-    background-color: #fff
-    display: block
-    @include transform(perspective(600px) rotateY(90deg))
-    @include transform-origin(center left)
-    @include transition(all .25s)
-
-  &:hover
-    svg
-      fill: #000
-    &:after
-      @include transform(rotateY(0deg))
-
-.menu
-  position: absolute
-  right: 0
-  top: 0
-  z-index: 20
-
-  .menu-btn
+header
+  .logo
     width: 110px
     height: 110px
     text-align: center
-    padding-top: 52px
-    position: relative
-    z-index: 10
-    cursor: pointer
-    @include transition(background-color .2s linear)
+    position: absolute
+    left: 0
+    top: 0
+    padding-top: 38px
+    z-index: 20
 
-    .btn-bg
-      width: 100%
-      height: 100%
-      display: block
-      background-color: #fff
-      position: absolute
-      top: 0
-      right: 0
-      @include transform(perspective(600px) rotateY(-90deg))
-      @include transform-origin(center right)
-      @include transition(all .25s)
-
-    .bars
+    svg
       position: relative
-      background-color: #fff
-      width: 40px
-      height: 4px
-      display: block
-      margin: 0 auto
       z-index: 10
+      fill: white
       @include transition(all .2s linear)
 
-      &:before, &:after
-        content: ""
+    &:after
+      content: ""
+      width: 110px
+      height: 110px
+      position: absolute
+      top: 0
+      left: 0
+      background-color: #fff
+      display: block
+      @include transform(perspective(600px) rotateY(90deg))
+      @include transform-origin(center left)
+      @include transition(all .25s)
+
+    &:hover
+      svg
+        fill: #000
+      &:after
+        @include transform(rotateY(0deg))
+
+  .menu
+    position: absolute
+    right: 0
+    top: 0
+    z-index: 20
+
+    .menu-btn
+      width: 110px
+      height: 110px
+      text-align: center
+      padding-top: 52px
+      position: relative
+      z-index: 10
+      cursor: pointer
+      @include transition(background-color .2s linear)
+
+      .btn-bg
+        width: 100%
+        height: 100%
+        display: block
+        background-color: #fff
+        position: absolute
+        top: 0
+        right: 0
+        @include transform(perspective(600px) rotateY(-90deg))
+        @include transform-origin(center right)
+        @include transition(all .25s)
+
+      .bars
+        position: relative
         background-color: #fff
         width: 40px
         height: 4px
         display: block
-        position: absolute
-        left: 0
-        @include transform(rotate(0deg))
+        margin: 0 auto
+        z-index: 10
         @include transition(all .2s linear)
 
-      &:before
-        top: -10px
-        @include transform-origin(top center)
-
-      &:after
-        top: 10px
-        @include transform-origin(bottom center)
-
-    a
-      position: absolute
-      background-color: #fff
-      width: 110px
-      height: 110px
-      display: block
-      color: #000
-      text-transform: uppercase
-      text-align: center
-      font: normal 22px/110px "proxima-nova-extra-condensed", sans-serif
-      @include backface-visibility(hidden)
-      @include transition(all .25s ease-in-out)
-
-      &.work
-        right: 111px
-        top: 0
-        @include transform(perspective(600px) rotateY(-90deg))
-        @include transform-origin(center right)
-        @include transition-delay(.5s)
-
-      &.about
-        right: 111px
-        top: 111px
-        @include transform(perspective(600px) rotateX(-90deg))
-        @include transform-origin(center top)
-        @include transition-delay(.25s)
-
-      &.contact
-        right: 0
-        top: 111px
-        @include transform(perspective(600px) rotateY(90deg))
-        @include transform-origin(center left)
-        @include transition-delay(0s)
-
-    &:hover, &.open
-      .btn-bg
-        @include transform(rotateY(0deg))
-        @include transition-delay(0s)
-      .bars
-        background-color: #000
-
         &:before, &:after
-          background-color: #000
-
-    &.open
-      .bars
-        background-color: transparent
+          content: ""
+          background-color: #fff
+          width: 40px
+          height: 4px
+          display: block
+          position: absolute
+          left: 0
+          @include transform(rotate(0deg))
+          @include transition(all .2s linear)
 
         &:before
-          top: 1px
-          @include transform(rotate(45deg))
+          top: -10px
+          @include transform-origin(top center)
 
         &:after
-          top: 0px
-          @include transform(rotate(-45deg))
+          top: 10px
+          @include transform-origin(bottom center)
 
       a
+        position: absolute
+        background-color: #fff
+        width: 110px
+        height: 110px
+        display: block
+        color: #000
+        text-transform: uppercase
+        text-align: center
+        font: normal 22px/110px "proxima-nova-extra-condensed", sans-serif
+        @include backface-visibility(hidden)
+        @include transition(all .25s ease-in-out)
+
         &.work
-          @include transform(rotateY(0deg))
-          @include transition-delay(0s)
+          right: 111px
+          top: 0
+          @include transform(perspective(600px) rotateY(-90deg))
+          @include transform-origin(center right)
+          @include transition-delay(.5s)
 
         &.about
-          @include transform(rotateX(0deg))
+          right: 111px
+          top: 111px
+          @include transform(perspective(600px) rotateX(-90deg))
+          @include transform-origin(center top)
           @include transition-delay(.25s)
 
         &.contact
+          right: 0
+          top: 111px
+          @include transform(perspective(600px) rotateY(90deg))
+          @include transform-origin(center left)
+          @include transition-delay(0s)
+
+      &:hover, &.open
+        .btn-bg
           @include transform(rotateY(0deg))
-          @include transition-delay(.5s)
+          @include transition-delay(0s)
+        .bars
+          background-color: #000
+
+          &:before, &:after
+            background-color: #000
+
+      &.open
+        .bars
+          background-color: transparent
+
+          &:before
+            top: 1px
+            @include transform(rotate(45deg))
+
+          &:after
+            top: 0px
+            @include transform(rotate(-45deg))
+
+        a
+          &.work
+            @include transform(rotateY(0deg))
+            @include transition-delay(0s)
+
+          &.about
+            @include transform(rotateX(0deg))
+            @include transition-delay(.25s)
+
+          &.contact
+            @include transform(rotateY(0deg))
+            @include transition-delay(.5s)
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -533,39 +534,93 @@ img
     height: 60px
     background-color: #000
 
-    .logo
+  .logo
+    height: 60px
+    width: 60px
+    left: 5px
+    padding-top: 13px
+
+    svg
+      width: 36px
+      fill: #fff !important
+
+    &:after
+      display: none
+
+  .menu
+    right: 5px
+    position: static
+    float: right
+
+    .menu-btn
       height: 60px
       width: 60px
-      left: 5px
-      padding-top: 13px
+      padding-top: 28px
+      padding-right: 10px
+      position: static
 
-      svg
-        width: 36px
-        fill: #fff !important
-
-      &:after
+      .btn-bg
         display: none
 
-    .menu
-      right: 5px
-      .menu-btn
-        height: 60px
-        width: 60px
-        padding-top: 28px
+      .bars, .bars:before, .bars:after
+        height: 3px
+        width: 30px
 
+      .bars:before
+        top: -8px
+
+      .bars:after
+        top: 8px
+
+      &:hover
         .bars, .bars:before, .bars:after
-          height: 3px
-          width: 30px
+          background-color: #fff
 
-        .bars:before
-          top: -8px
+      .menu-nav
+        width: 100%
+        position: absolute
+        top: 60px
+        left: 0
+        z-index: 0
+        transition: z-index 0 .75s
 
-        .bars:after
-          top: 8px
+      a
+        position: relative
+        display: block
+        width: 100%
+        height: 70px
+        margin: 0
+        top: 0 !important
+        right: auto !important
+        font: normal 24px/70px "proxima-nova-extra-condensed", sans-serif
+        @include backface-visibility(hidden)
+        @include transform(perspective(600px) rotateX(-90deg))
+        @include transform-origin(center top)
+        @include transition(all .25s ease-in-out)
+
+        &.work
+          @include transition-delay(.5s)
+
+        &.about
+          @include transition-delay(.25s)
+
+        &.contact
+          @include transition-delay(0s)
+
+      &.open
+        .bars
+          background-color: transparent
+        .bars:before, .bars:after
+          background-color: #fff
+
+        .menu-nav
+          z-index: 100
+          transition: z-index 0 0s
 
   .hero
     margin-bottom: 30px
     .text
+      top: 12%
       h1
         font-size: 15vw
         margin-bottom: 5px
@@ -605,4 +660,6 @@ img
   .mobile-only
     display: block
 
+
+@import "bodyboss"
 @import "kickdrop"
