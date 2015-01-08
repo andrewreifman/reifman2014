@@ -483,6 +483,9 @@ header
       max-height: 100%
       margin: 0 auto
 
+    p
+      font-size: 18px
+
     .text
       height: 76px
       margin-top: -38px
@@ -534,88 +537,88 @@ header
     height: 60px
     background-color: #000
 
-  .logo
-    height: 60px
-    width: 60px
-    left: 5px
-    padding-top: 13px
-
-    svg
-      width: 36px
-      fill: #fff !important
-
-    &:after
-      display: none
-
-  .menu
-    right: 5px
-    position: static
-    float: right
-
-    .menu-btn
+    .logo
       height: 60px
       width: 60px
-      padding-top: 28px
-      padding-right: 10px
-      position: static
+      left: 5px
+      padding-top: 13px
 
-      .btn-bg
+      svg
+        width: 36px
+        fill: #fff !important
+
+      &:after
         display: none
 
-      .bars, .bars:before, .bars:after
-        height: 3px
-        width: 30px
+    .menu
+      right: 5px
+      position: static
+      float: right
 
-      .bars:before
-        top: -8px
+      .menu-btn
+        height: 60px
+        width: 60px
+        padding-top: 28px
+        padding-right: 10px
+        position: static
 
-      .bars:after
-        top: 8px
+        .btn-bg
+          display: none
 
-      &:hover
         .bars, .bars:before, .bars:after
-          background-color: #fff
+          height: 3px
+          width: 30px
 
-      .menu-nav
-        width: 100%
-        position: absolute
-        top: 60px
-        left: 0
-        z-index: 0
-        transition: z-index 0 .75s
+        .bars:before
+          top: -8px
 
-      a
-        position: relative
-        display: block
-        width: 100%
-        height: 70px
-        margin: 0
-        top: 0 !important
-        right: auto !important
-        font: normal 24px/70px "proxima-nova-extra-condensed", sans-serif
-        @include backface-visibility(hidden)
-        @include transform(perspective(600px) rotateX(-90deg))
-        @include transform-origin(center top)
-        @include transition(all .25s ease-in-out)
+        .bars:after
+          top: 8px
 
-        &.work
-          @include transition-delay(.5s)
-
-        &.about
-          @include transition-delay(.25s)
-
-        &.contact
-          @include transition-delay(0s)
-
-      &.open
-        .bars
-          background-color: transparent
-        .bars:before, .bars:after
-          background-color: #fff
+        &:hover
+          .bars, .bars:before, .bars:after
+            background-color: #fff
 
         .menu-nav
-          z-index: 100
-          transition: z-index 0 0s
+          width: 100%
+          position: absolute
+          top: 60px
+          left: 0
+          z-index: 0
+          transition: z-index 0 .75s
+
+        a
+          position: relative
+          display: block
+          width: 100%
+          height: 70px
+          margin: 0
+          top: 0 !important
+          right: auto !important
+          font: normal 24px/70px "proxima-nova-extra-condensed", sans-serif
+          @include backface-visibility(hidden)
+          @include transform(perspective(600px) rotateX(-90deg))
+          @include transform-origin(center top)
+          @include transition(all .25s ease-in-out)
+
+          &.work
+            @include transition-delay(.5s)
+
+          &.about
+            @include transition-delay(.25s)
+
+          &.contact
+            @include transition-delay(0s)
+
+        &.open
+          .bars
+            background-color: transparent
+          .bars:before, .bars:after
+            background-color: #fff
+
+          .menu-nav
+            z-index: 100
+            transition: z-index 0 0s
 
   .hero
     margin-bottom: 30px
@@ -663,3 +666,4 @@ header
 
 @import "bodyboss"
 @import "kickdrop"
+@import "wedding"
