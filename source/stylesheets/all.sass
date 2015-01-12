@@ -68,6 +68,8 @@ img
     display: block
 
 header
+  position: relative
+  z-index: 10
   .logo
     width: 110px
     height: 110px
@@ -237,6 +239,7 @@ header
   text-align: center
   display: block
   position: relative
+  z-index: 0
 
   img
     opacity: 1
@@ -253,8 +256,7 @@ header
     top: 50%
     left: 0
     width: 100%
-    height: 150px
-    margin-top: -75px
+    @include transform(translateY(-50%))
     @include perspective(800px)
 
   h1, p
@@ -314,6 +316,26 @@ header
   &.kickdrop
     background: #36abc6
 
+  &.wedding
+    background: #212239
+
+    &:after
+      content: ""
+      background: url(../images/wedding-preview-bg.jpg) repeat-x center top
+      width: 100%
+      height: 100%
+      display: block
+      position: absolute
+      top: 0
+      left: 0
+      background-size: auto 100%
+      opacity: 1
+      @include transition(opacity .2s linear)
+
+    &:hover
+      &:after
+        opacity: .3
+
 
 /*-----------------------------------------------------------------------------------*/
 /*  Project detail
@@ -326,6 +348,7 @@ header
   position: relative
   text-align: center
   margin-bottom: 70px
+  z-index: 0
 
   img
     display: block
@@ -338,6 +361,7 @@ header
     position: absolute
     top: 15%
     left: 0
+    z-index: 20
 
     h1
       line-height: 1
@@ -399,6 +423,7 @@ header
 
     li
       margin-bottom: 5px
+      color: #999
 
   .visit-link
     font-family: "futura-pt", sans-serif
@@ -487,9 +512,6 @@ header
       font-size: 18px
 
     .text
-      height: 76px
-      margin-top: -38px
-
       h1
         font-size: 70px
         letter-spacing: -.02em
@@ -536,6 +558,11 @@ header
   header
     height: 60px
     background-color: #000
+    transition: z-index 0 .75s
+
+    &.open
+      z-index: 100
+      transition: z-index 0 0s
 
     .logo
       height: 60px
@@ -620,6 +647,16 @@ header
             z-index: 100
             transition: z-index 0 0s
 
+  .project
+    h1
+      font-size: 3.8em
+    p
+      font-size: 1em
+      margin-bottom: 10px
+
+    &.bodyboss
+      z-index: 20
+
   .hero
     margin-bottom: 30px
     .text
@@ -653,12 +690,12 @@ header
       padding: 0 30px
 
       .text
-        height: 46px
-        margin-top: -23px
-
         h1
-          font-size: 40px
+          font-size: 3em
           letter-spacing: -.02em
+        p
+          font-size: 1em
+          margin: 0
 
   .mobile-only
     display: block

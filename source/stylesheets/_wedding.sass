@@ -1,0 +1,66 @@
+.wedding
+  .hero
+    background: #000 url(../images/wedding/wedding-hero-bg.jpg) repeat-x 20% center
+    background-size: auto 100%
+    position: relative
+
+    img
+      position: relative
+      z-index: 10
+
+    .leaves-mid, .leaves-front
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: url(../images/wedding/leaves-mid.png), url(../images/wedding/bushes.png)
+      background-repeat: repeat-x
+      background-position: 40% center
+      background-size: auto 100%
+
+    .leaves-front
+      background: url(../images/wedding/leaves-front.png)
+      background-position: 60% center
+      background-size: auto 100%
+      z-index: 20
+
+  .invitation
+    > img
+      margin: 10px auto 70px
+
+    .photos
+      float: left
+      width: 100%
+      img
+        float: left
+        width: 50%
+
+  .website
+    img
+      margin: 0 auto 40px
+
+      &:last-child
+        margin-bottom: 70px
+
+
+  @media screen and (max-width: 1200px)
+    .invitation, .website
+      padding: 0 15px
+
+
+  @media screen and (max-width: 767px)
+    .invitation
+      > img
+        margin-bottom: 40px
+      .photos
+        img
+          width: 100%
+          margin-bottom: 15px
+
+    .website
+      img
+        margin-bottom: 15px
+
+        &:last-child
+          margin-bottom: 30px
