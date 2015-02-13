@@ -2,9 +2,32 @@
 
 $(document).ready(function(){
 
+  $(window).load(function(){
+    $('body.index .project, .hero').addClass('animate');
+  });
+
   $('.menu-btn').click(function(){
     $(this).toggleClass('open');
     $('header').toggleClass('open');
+  });
+
+  var win = $(window);
+  var allMods = $(".module");
+
+  allMods.each(function(i, el) {
+    var el = $(el);
+    if (el.visible(true)) {
+      el.addClass("already-visible");
+    }
+  });
+
+  win.scroll(function(event) {
+    allMods.each(function(i, el) {
+      var el = $(el);
+      if (el.visible(true)) {
+        el.addClass("come-in");
+      }
+    });
   });
 
   //////////////////////////////////////////////////////////////////////////////////////

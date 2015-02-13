@@ -67,6 +67,12 @@ img
     max-width: 100%
     display: block
 
+body.index
+  header
+    .logo, .menu
+      position: fixed
+
+
 header
   position: relative
   z-index: 10
@@ -250,6 +256,35 @@ header
     z-index: 1
     @include transition(opacity .2s linear)
 
+  .shade
+    content: ""
+    width: 100%
+    height: 100%
+    display: block
+    position: absolute
+    top: 0
+    right: 0
+    z-index: 90
+    // background-color: transparent !important
+    @include transition(width 1.2s cubic-bezier(1,0,0,1))
+
+    &:after
+      content: ""
+      width: 100%
+      height: 100%
+      display: block
+      position: absolute
+      top: 0
+      right: 0
+      z-index: 100
+      @include transition(width 1.4s cubic-bezier(1,0,0,1))
+      background-color: #fff
+
+  &.animate .shade
+    width: 0%
+    &:after
+      width: 0%
+
   .text
     position: absolute
     z-index: 10
@@ -280,9 +315,20 @@ header
     @include transform(translate(0,50px))
     @include transition(all .4s)
 
+  &:after
+    content: ""
+    width: 100%
+    height: 100%
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 1
+    @include transition(opacity .2s linear)
+
   &:hover
     img
-      opacity: .15
+      opacity: .1
 
     h1, p
       opacity: 1
@@ -294,47 +340,53 @@ header
       @include transform(translate(0,0))
 
 .project
+  &:hover
+    &:after
+      opacity: .1
+
   &.bodyboss
     background-color: #000
-
     &:after
-      content: ""
       background: url(../images/bodyboss-bg-bars.png) repeat-x center top
-      width: 100%
-      height: 100%
-      display: block
-      position: absolute
-      top: 0
-      left: 0
-      opacity: 1
-      @include transition(opacity .2s linear)
 
-    &:hover
+    .shade
+      background-color: #000
+      @include transition-delay(2.2s)
       &:after
-        opacity: .4
+        @include transition-delay(.7s)
 
   &.kickdrop
     background: #36abc6
+
+    .shade
+      background-color: darken(#36abc6, 8%)
+      @include transition-delay(2.35s)
+      &:after
+        @include transition-delay(.85s)
 
   &.wedding
     background: #212239
 
     &:after
-      content: ""
       background: url(../images/wedding-preview-bg.jpg) repeat-x center top
-      width: 100%
-      height: 100%
-      display: block
-      position: absolute
-      top: 0
-      left: 0
       background-size: auto 100%
-      opacity: 1
-      @include transition(opacity .2s linear)
 
-    &:hover
+    .shade
+      background-color: #212239
+      @include transition-delay(2.5s)
       &:after
-        opacity: .3
+        @include transition-delay(1s)
+
+  &.other-work
+    background: #8b4a2e
+    &:after
+      background: #8b4a2e url(../images/other/other-hero-bg.gif) repeat center center
+
+    .shade
+      background-color: #8b4a2e
+      @include transition-delay(2.65s)
+      &:after
+        @include transition-delay(1.15s)
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -349,6 +401,22 @@ header
   text-align: center
   margin-bottom: 70px
   z-index: 0
+
+  &:after
+    content: ""
+    width: 100%
+    height: 100%
+    display: block
+    position: absolute
+    top: 0
+    right: 0
+    z-index: 100
+    @include transition(width 1.2s .4s cubic-bezier(1,0,0,1))
+    background-color: #fff
+
+  &.animate
+    &:after
+      width: 0%
 
   img
     display: block
@@ -392,6 +460,21 @@ header
 
 .mobile-only
   display: none
+
+.module
+  opacity: 0
+  @include transform(translateY(250px))
+  @include transition(all .6s ease)
+  &:nth-child(even)
+    @include transition-delay(.3s)
+
+  &.already-visible
+    opacity: 1
+    @include transform(translateY(0px))
+
+.come-in
+  opacity: 1
+  transform: translateY(0px)
 
 .intro
   float: left
@@ -500,12 +583,14 @@ header
 .other-projects
   .project
     width: 50%
+    max-height: 300px
     float: left
     padding: 0 30px
+    overflow: hidden
 
     img
       max-width: 100%
-      max-height: 100%
+      max-height: 300px
       margin: 0 auto
 
     p
@@ -514,6 +599,7 @@ header
     .text
       h1
         font-size: 70px
+        margin-top: 20px
         letter-spacing: -.02em
 
 @media screen and (max-height: 840px) and (min-width: 900px)
@@ -704,3 +790,4 @@ header
 @import "bodyboss"
 @import "kickdrop"
 @import "wedding"
+@import "other"

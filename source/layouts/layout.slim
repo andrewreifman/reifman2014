@@ -11,7 +11,7 @@ html
     <script src="//use.typekit.net/eim7ozc.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 
-  body
+  body class=page_classes
     header
       a.logo href="index.html"
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="49" height="34" viewBox="0 0 49 34">
@@ -29,4 +29,4 @@ html
 
     = yield
 
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js", "all"
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js", "plugins", "all"
