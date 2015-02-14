@@ -11,6 +11,18 @@ $(document).ready(function(){
     $('header').toggleClass('open');
   });
 
+  $('.logo').click(function(){
+    $('body').addClass('index');
+    $.get("/index.html", function(data){
+      $("body").prepend(data);
+      $('body.index .project').addClass('animate');
+    });
+  });
+
+
+  //////////////////////////////////////////////////////////////////////////////////////
+  // Portfolio scroll animations
+  //////////////////////////////////////////////////////////////////////////////////////
   var win = $(window);
   var allMods = $(".module");
 
