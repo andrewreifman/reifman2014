@@ -11,11 +11,15 @@ $(document).ready(function(){
     $('header').toggleClass('open');
   });
 
-  $('.logo').click(function(){
-    $('body').addClass('index');
-    $.get("/index.html", function(data){
+  $('body:not(.index) .logo, body:not(.index) .menu-btn .work').click(function(e){
+    $('body').addClass('index work-open');
+    e.preventDefault();
+    $.get("/work.html", function(data){
       $("body").prepend(data);
-      $('body.index .project').addClass('animate');
+      setTimeout(function(){
+        $('.project-list .project').addClass('animate');
+      }, 100);
+      $('.project-detail').delay(2000).hide(0);
     });
   });
 
@@ -23,24 +27,26 @@ $(document).ready(function(){
   //////////////////////////////////////////////////////////////////////////////////////
   // Portfolio scroll animations
   //////////////////////////////////////////////////////////////////////////////////////
-  var win = $(window);
-  var allMods = $(".module");
+  if ($(".module").length){
+    var win = $(window);
+    var allMods = $(".module");
 
-  allMods.each(function(i, el) {
-    var el = $(el);
-    if (el.visible(true)) {
-      el.addClass("already-visible");
-    }
-  });
-
-  win.scroll(function(event) {
     allMods.each(function(i, el) {
       var el = $(el);
       if (el.visible(true)) {
-        el.addClass("come-in");
+        el.addClass("already-visible");
       }
     });
-  });
+
+    win.scroll(function(event) {
+      allMods.each(function(i, el) {
+        var el = $(el);
+        if (el.visible(true)) {
+          el.addClass("come-in");
+        }
+      });
+    });
+  }
 
   //////////////////////////////////////////////////////////////////////////////////////
   // Kickdrop JS
@@ -55,21 +61,23 @@ $(document).ready(function(){
     return ((docViewTop < elemTop) && (docViewBottom > elemBottom));
   }
 
-  $(window).on('scroll', function (){
-    if(isScrolledIntoView('.themes')) {
-      setTimeout(function(){
-        $('.theme-1').show().delay(200).animate({'margin-left': '-420px'}, 300, 'easeOutBack');
-        $('.theme-2').show().delay(200).animate({'margin-left': '-350px'}, 300, 'easeOutBack');
-        $('.theme-3').show().delay(200).animate({'margin-left': '-150px'}, 300, 'easeOutBack');
-        $('.theme-4').show().delay(200).animate({'margin-left': '-80px'}, 300, 'easeOutBack');
-      }, 1800);
+  if ($(".themes").length){
+    $(window).on('scroll', function (){
+      if(isScrolledIntoView('.themes')) {
+        setTimeout(function(){
+          $('.theme-1').show().delay(200).animate({'margin-left': '-420px'}, 300, 'easeOutBack');
+          $('.theme-2').show().delay(200).animate({'margin-left': '-350px'}, 300, 'easeOutBack');
+          $('.theme-3').show().delay(200).animate({'margin-left': '-150px'}, 300, 'easeOutBack');
+          $('.theme-4').show().delay(200).animate({'margin-left': '-80px'}, 300, 'easeOutBack');
+        }, 1800);
 
-      $('.theme-main').addClass('open');
-      setTimeout(function(){
-        $('.theme-main .image').show();
-      }, 1000);
-    }
-  });
+        $('.theme-main').addClass('open');
+        setTimeout(function(){
+          $('.theme-main .image').show();
+        }, 1000);
+      }
+    });
+  }
 
   // Drag and drop widgets
   $(".widgets .widget").each(function(){

@@ -242,7 +242,7 @@ header
 /*-----------------------------------------------------------------------------------*/
 /*  Home
 /*-----------------------------------------------------------------------------------*/
-body.index
+.project-list
   .project
     @include transform(translateX(-100%))
     @include transition(all 1.2s cubic-bezier(1,0,0,1))
@@ -382,6 +382,16 @@ body.index
     &:after
       background: #8b4a2e url(../images/other/other-hero-bg.gif) repeat center center
 
+body.work-open
+  position: relative
+
+  .project-list
+    position: absolute
+    z-index: 5
+    top: 0
+    left: 0
+    width: 100%
+
 
 /*-----------------------------------------------------------------------------------*/
 /*  Project detail
@@ -459,8 +469,8 @@ body.index
   opacity: 0
   @include transform(translateY(250px))
   @include transition(all .6s ease)
-  &:nth-child(even)
-    @include transition-delay(.3s)
+  &.module-delay
+    @include transition-delay(.2s)
 
   &.already-visible
     opacity: 1
@@ -595,6 +605,50 @@ body.index
         font-size: 70px
         margin-top: 20px
         letter-spacing: -.02em
+
+
+body.contact
+  header
+    .logo
+      svg
+        fill: black
+
+      &:after
+
+    .menu .menu-btn .bars
+      background-color: #000
+      &:before, &:after
+        background-color: #000
+
+  .contact-page
+    width: 100%
+    height: 100%
+    background-color: #f2f2f2
+
+    a
+      color: #000
+      text-align: center
+      font-size: 90px
+      float: left
+      display: block
+      width: 25%
+      height: 50%
+      border-left: 1px solid rgba(0,0,0,.1)
+      border-bottom: 1px solid rgba(0,0,0,.1)
+
+      &.email
+        width: 50%
+        height: 100%
+        border: 0
+        font-size: 112px
+
+      &.linkedin, &.github
+        border-bottom: 0
+
+      i
+        @include transform(translateY(-50%))
+        position: relative
+        top: 46%
 
 @media screen and (max-height: 840px) and (min-width: 900px)
   .hero
