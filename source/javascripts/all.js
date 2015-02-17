@@ -23,6 +23,17 @@ $(document).ready(function(){
     });
   });
 
+  $('.menu-btn .contact').click(function(e){
+    $('body').addClass('contact');
+    e.preventDefault();
+    $.get("/contact.html", function(data){
+      $("body").prepend(data);
+      setTimeout(function(){
+        $('.project-list .project').addClass('animate');
+      }, 100);
+    });
+  });
+
 
   //////////////////////////////////////////////////////////////////////////////////////
   // Portfolio scroll animations

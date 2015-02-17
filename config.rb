@@ -16,6 +16,7 @@ end
 #
 # With no layout
 page "work.html", :layout => false
+page "contact.html", :layout => false
 #
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout

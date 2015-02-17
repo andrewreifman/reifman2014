@@ -215,7 +215,7 @@ header
 
       &.open
         .bars
-          background-color: transparent
+          background-color: transparent !important
 
           &:before
             top: 1px
@@ -608,24 +608,36 @@ body.work-open
 
 
 body.contact
+  overflow: hidden
   header
     .logo
       svg
         fill: black
 
       &:after
+        box-shadow: 0 0 4px rgba(0,0,0,.1)
 
-    .menu .menu-btn .bars
-      background-color: #000
-      &:before, &:after
+    .menu .menu-btn
+      .btn-bg
+        box-shadow: 0 0 4px rgba(0,0,0,.1)
+      .bars
         background-color: #000
+        &:before, &:after
+          background-color: #000
+      &.open a
+        box-shadow: 0 0 4px rgba(0,0,0,.1)
 
   .contact-page
     width: 100%
     height: 100%
     background-color: #f2f2f2
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 8
 
     a
+      position: relative
       color: #000
       text-align: center
       font-size: 90px
@@ -633,22 +645,65 @@ body.contact
       display: block
       width: 25%
       height: 50%
-      border-left: 1px solid rgba(0,0,0,.1)
-      border-bottom: 1px solid rgba(0,0,0,.1)
+      box-shadow: inset 1px -1px rgba(0,0,0,.1)
+      overflow: hidden
+      @include transition(color .15s .15s linear)
 
       &.email
         width: 50%
         height: 100%
-        border: 0
+        box-shadow: none
         font-size: 112px
 
       &.linkedin, &.github
-        border-bottom: 0
+        box-shadow: inset 1px 0 rgba(0,0,0,.1)
 
       i
         @include transform(translateY(-50%))
         position: relative
-        top: 46%
+        top: 47%
+        z-index: 15
+
+      &:after
+        content: ""
+        width: 0%
+        height: 100%
+        display: block
+        position: absolute
+        top: 0
+        right: 0
+        left: auto
+        z-index: 5
+        background: red
+        @include transition(width .45s cubic-bezier(1,0,0,1))
+
+      &.email
+        // color: #27b5de
+        &:after
+          background-color: #27b5de
+      &.twitter
+        // color: #00aced
+        &:after
+          background-color: #00aced
+      &.dribbble
+        // color: #ea4c89
+        &:after
+          background-color: #ea4c89
+      &.linkedin
+        // color: #007bb6
+        &:after
+          background-color: #007bb6
+      &.github
+        // color: #222
+        &:after
+          background-color: #222
+
+      &:hover
+        color: #fff
+        &:after
+          width: 100%
+          left: 0
+          right: auto
 
 @media screen and (max-height: 840px) and (min-width: 900px)
   .hero
@@ -833,6 +888,30 @@ body.contact
 
   .mobile-only
     display: block
+
+  body.contact
+    header .menu .menu-btn .bars
+      background-color: #fff
+
+      &:after, &:before
+        background-color: #fff
+
+    .contact-page
+      height: calc(100% - 60px)
+      top: 60px
+      z-index: 15
+
+      a
+        z-index: 25
+        width: 50%
+        height: 33.33%
+        font-size: 15vw
+
+        &.email
+          width: 100%
+          height: 33.33%
+          font-size: 16vw
+          box-shadow: inset 0 -1px rgba(0,0,0,.1)
 
 
 @import "bodyboss"
