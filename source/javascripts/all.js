@@ -3,7 +3,7 @@
 $(document).ready(function(){
 
   $(window).load(function(){
-    $('body.index .project, .hero').addClass('animate');
+    $('body.index .project, .hero, .contact-page').addClass('animate');
   });
 
   $('.menu-btn').click(function(){
@@ -29,7 +29,7 @@ $(document).ready(function(){
     $.get("/contact.html", function(data){
       $("body").prepend(data);
       setTimeout(function(){
-        $('.project-list .project').addClass('animate');
+        $('.contact-page').addClass('animate');
       }, 100);
     });
   });

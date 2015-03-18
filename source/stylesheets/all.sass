@@ -67,11 +67,10 @@ img
     max-width: 100%
     display: block
 
-body.index
+body.index, body.contact
   header
     .logo, .menu
       position: fixed
-
 
 header
   position: relative
@@ -608,7 +607,6 @@ body.work-open
 
 
 body.contact
-  overflow: hidden
   header
     .logo
       svg
@@ -630,14 +628,14 @@ body.contact
   .contact-page
     width: 100%
     height: 100%
-    background-color: #f2f2f2
-    position: absolute
+    position: fixed
     top: 0
     left: 0
-    z-index: 8
+    z-index: 5
 
     a
       position: relative
+      background-color: #f2f2f2
       color: #000
       text-align: center
       font-size: 90px
@@ -647,7 +645,9 @@ body.contact
       height: 50%
       box-shadow: inset 1px -1px rgba(0,0,0,.1)
       overflow: hidden
-      @include transition(color .15s .15s linear)
+      @include transform(perspective(600px) rotateY(90deg))
+      @include transform-origin(center left)
+      @include transition(all .6s)
 
       &.email
         width: 50%
@@ -659,10 +659,11 @@ body.contact
         box-shadow: inset 1px 0 rgba(0,0,0,.1)
 
       i
-        @include transform(translateY(-50%))
         position: relative
         top: 47%
         z-index: 15
+        @include transform(translateY(-50%))
+        @include transition(color .15s .15s linear)
 
       &:after
         content: ""
@@ -683,27 +684,37 @@ body.contact
           background-color: #27b5de
       &.twitter
         // color: #00aced
+        @include transition-delay(.45s)
         &:after
           background-color: #00aced
-      &.dribbble
-        // color: #ea4c89
-        &:after
-          background-color: #ea4c89
       &.linkedin
         // color: #007bb6
+        @include transition-delay(.6s)
         &:after
           background-color: #007bb6
+      &.dribbble
+        // color: #ea4c89
+        @include transition-delay(.75s)
+        &:after
+          background-color: #ea4c89
       &.github
         // color: #222
+        @include transition-delay(.9s)
         &:after
           background-color: #222
 
       &:hover
-        color: #fff
+        i
+          color: #fff
         &:after
           width: 100%
           left: 0
           right: auto
+
+    &.animate
+      a
+        @include transform(rotateY(0deg))
+
 
 @media screen and (max-height: 840px) and (min-width: 900px)
   .hero
@@ -918,3 +929,4 @@ body.contact
 @import "kickdrop"
 @import "wedding"
 @import "other"
+@import "about"
