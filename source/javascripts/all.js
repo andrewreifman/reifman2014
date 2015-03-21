@@ -132,4 +132,23 @@ $(document).ready(function(){
     });
   });
 
+
+  //////////////////////////////////////////////////////////////////////////////////////
+  // Skill pie charts
+  //////////////////////////////////////////////////////////////////////////////////////
+  if($(".skills").length){
+    $(window).on('scroll', function (){
+      if(isScrolledIntoView('.skills')) {
+        setTimeout(function(){
+          $('.ps .radial-progress').attr('data-progress', 100);
+          $('.ai .radial-progress').attr('data-progress', 100);
+          $('.html .radial-progress').attr('data-progress', 90);
+          $('.css .radial-progress').attr('data-progress', 95);
+          $('.jquery .radial-progress').attr('data-progress', 70);
+          $('.breakdancing .radial-progress').attr('data-progress', 15);
+        }, 400);
+      }
+    });
+  }
+
 });

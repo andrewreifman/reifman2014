@@ -9,9 +9,130 @@
 
     .intro
       float: none
-      max-width: 650px
-      margin: 0 auto
+      max-width: 800px
+      margin: 4% auto 0
 
+      p
+        font-size: 28px
+        color: #fff
+        font-weight: 300
+        -webkit-font-smoothing: antialiased
+
+  .skills
+    text-align: center
+    margin-bottom: 130px
+
+  .skill
+    display: inline-block
+    margin: 20px 25px
+    vertical-align: top
+
+    h3
+      color: #000
+      text-transform: uppercase
+      font: normal 20px/1 "proxima-nova-extra-condensed", sans-serif
+      margin-bottom: 5px
+
+    em
+      font-size: 13px
+      color: #777777
+
+    &.ps .radial-progress .circle .mask .fill
+      background-color: #2bdaff
+    &.ai .radial-progress .circle .mask .fill
+      background-color: #fd771a
+    &.html .radial-progress .circle .mask .fill
+      background-color: #e34f25
+    &.css .radial-progress .circle .mask .fill
+      background-color: #1471b6
+    &.jquery .radial-progress .circle .mask .fill
+      background-color: #74cff7
+    &.breakdancing .radial-progress .circle .mask .fill
+      background-color: #c359b8
+
+  .radial-progress
+    $circle-size: 160px
+    $circle-background: #f6f6f6
+    $transition-length: 1s
+
+    margin-bottom: 25px
+    width: $circle-size
+    height: $circle-size
+    background-color: $circle-background
+    border-radius: 50%
+    position: relative
+
+    .circle
+      .mask, .fill, .shadow
+        width: $circle-size
+        height: $circle-size
+        position: absolute
+        border-radius: 50%
+
+      .mask, .fill
+        -webkit-backface-visibility: hidden
+        transition: -webkit-transform $transition-length
+        transition: -ms-transform $transition-length
+        transition: transform $transition-length
+
+      .mask
+        clip: rect(0px, $circle-size, $circle-size, $circle-size/2)
+        .fill
+          clip: rect(0px, $circle-size/2, $circle-size, 0px)
+
+    .inset
+      width: 144px
+      height: 144px
+      position: absolute
+      top: 8px
+      left: 8px
+      background-color: #fff
+      border-radius: 50%
+      text-align: center
+      padding: 27px
+
+    @each $percent in 0, 15, 70, 90, 95, 100
+      $increment: 180deg / 100
+
+      &[data-progress="#{$percent}"]
+        .circle
+          .mask.full, .fill
+            -webkit-transform: rotate($increment * $percent)
+            -ms-transform: rotate($increment * $percent)
+            transform: rotate($increment * $percent)
+
+          .fill.fix
+            -webkit-transform: rotate($increment * $percent * 2)
+            -ms-transform: rotate($increment * $percent * 2)
+            transform: rotate($increment * $percent * 2)
+
+  .facts
+    text-align: center
+    position: relative
+
+    h2
+      margin: 0 0 40px
+
+    p
+      font-size: 18px
+      line-height: 1.5
+      margin: 0
+
+  .fact-1
+    background-color: #eeeee9
+    padding: 4% 30%
+
+    img
+      box-shadow: 0 15px 30px rgba(0,0,0,.25)
+      position: absolute
+      top: 50%
+      width: 25%
+      @include transform(translateY(-50%))
+
+      &.brazil
+        left: 0
+      &.russia
+        right: 0
 
   @media screen and (max-width: 1200px)
 
