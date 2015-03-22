@@ -117,10 +117,12 @@
       font-size: 18px
       line-height: 1.5
       margin: 0
+      -webkit-font-smoothing: antialiased
 
   .fact-1
     background-color: #eeeee9
     padding: 4% 30%
+    margin-bottom: 8%
 
     img
       box-shadow: 0 15px 30px rgba(0,0,0,.25)
@@ -133,6 +135,121 @@
         left: 0
       &.russia
         right: 0
+
+  .specialties
+    text-align: center
+    margin-bottom: 120px
+
+  .badge
+    display: inline-block
+    margin: 20px 35px
+    vertical-align: top
+
+    &.web
+      max-width: 260px
+    &.apps
+      max-width: 240px
+    &.dev
+      max-width: 220px
+    &.branding
+      max-width: 190px
+
+    img
+      margin-bottom: 38px
+      width: 100%
+
+    h3
+      color: #000
+      text-transform: uppercase
+      font: normal 20px/1 "proxima-nova-extra-condensed", sans-serif
+      margin-bottom: 0
+
+  .fact-2
+    background: url(../images/about/felt.jpg) repeat center center
+    padding: 9% 30%
+    overflow: hidden
+
+    img
+      position: absolute
+      left: 0
+      top: 50%
+      margin-top: 12px
+      @include transform(translateY(-50%))
+      @include transition(all .15s)
+
+    h2, p
+      color: #fff
+
+    .ball
+      width: 100px
+      height: 100px
+      border-radius: 50%
+      display: block
+      box-shadow: inset -6px -8px rgba(0,0,0,.15), 12px 15px rgba(0,0,0,.25)
+      position: absolute
+      @include transform(translate(-50%,-50%))
+
+      &.ball-cue
+        top: 50%
+        left: 270px
+        background-color: #fff
+      &.ball-1
+        top: 20%
+        left: 75%
+        background-color: #ffb500
+      &.ball-2
+        top: 100%
+        left: 85%
+        background-color: #2142ad
+      &.ball-3
+        top: 90%
+        left: 65%
+        background-color: #c72c2c
+      &.ball-4
+        top: 80%
+        left: 1%
+        background-color: #4f3390
+      &.ball-5
+        top: 8%
+        left: 10%
+        background-color: #ec662b
+      &.ball-6
+        top: 98%
+        left: 15%
+        background-color: #0f7b4f
+      &.ball-7
+        top: 2%
+        left: 45%
+        background-color: #6b1f28
+      &.ball-8
+        top: 50%
+        left: 90%
+        background-color: #282828
+
+  .awards
+    text-align: center
+    margin-bottom: 130px
+    img
+      margin: 20px 40px
+      display: inline-block
+      vertical-align: middle
+
+  .fact-3
+    background-color: #1f2137
+
+    img
+      display: block
+      margin: 0 auto
+
+    .text
+      position: absolute
+      left: 50%
+      top: 50%
+      max-width: 600px
+      @include transform(translate(-50%,-50%))
+
+    h2, p
+      color: #fff
 
   @media screen and (max-width: 1200px)
 

@@ -134,10 +134,10 @@ $(document).ready(function(){
 
 
   //////////////////////////////////////////////////////////////////////////////////////
-  // Skill pie charts
+  // About page
   //////////////////////////////////////////////////////////////////////////////////////
   if($(".skills").length){
-    $(window).on('scroll', function (){
+    $(window).on('scroll', function(){
       if(isScrolledIntoView('.skills')) {
         setTimeout(function(){
           $('.ps .radial-progress').attr('data-progress', 100);
@@ -146,7 +146,15 @@ $(document).ready(function(){
           $('.css .radial-progress').attr('data-progress', 95);
           $('.jquery .radial-progress').attr('data-progress', 70);
           $('.breakdancing .radial-progress').attr('data-progress', 15);
-        }, 400);
+        }, 200);
+      }
+    });
+  }
+
+  if($(".fact-2").length){
+    $(window).on('scroll', function(){
+      if(isScrolledIntoView('.fact-2')) {
+        $('.fact-2').addClass('animate');
       }
     });
   }
